@@ -1,30 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// class Square extends React.Component {
-// constructor(){
-//     super();
-//     this.state ={
-//         value:null
-//     };
-// }
-// render() {
-//     return (
-//         <button className="square" onClick={() =>this.props.onClick()}>
-//             {this.props.value}
-//         </button>
-//     );
-// }
-
-// function Square(props){
-//     return(
-//         <button className="square" onClick={props.onClick}>
-//             {props.value}
-//         </button>
-//     );
-// }
-
-// }
+import { Editor } from'react-draft-wysiwyg';
+import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 function Square(props) {
     return (
@@ -197,20 +175,23 @@ class Game extends React.Component {
 
         return (
             <div className="game">
-                <div className="game-board">
+                <div>
+                    <div className="game-board">
                     <Board
                         squares = {current.squares}
                         onClick = {(i) => this.handleClick(i)}
                         resetClick = {this.reset.bind(this)}
                     />
                 </div>
-                <div className="game-info">
-                    <div>{ status }</div>
-                    <ol>{ moves }</ol>
+                    <div className="game-info">
+                        <div>{ status }</div>
+                        <ol>{ moves }</ol>
+                    </div>
+                    <div className="result">
+                        <div>{result}</div>
+                    </div>
                 </div>
-                <div className="result">
-                    <div>{result}</div>
-                </div>
+                <Editor />
             </div>
         );
 
